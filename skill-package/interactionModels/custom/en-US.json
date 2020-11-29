@@ -1,0 +1,266 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "gonna get lucky",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "SorteoNumeroIntent",
+          "slots": [
+            {
+              "name": "numSup",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "top {numSup}",
+                "I want to sort {cantNum} ",
+                "I want to sort {cantNum} numbers",
+                "the maximum limit will be {numSup} and I will enter {cantNum} numbers",
+                "the largest number will be {numSup}",
+                "the biggest is {numSup}",
+                "{numSup}",
+                "the {numSup}"
+              ]
+            },
+            {
+              "name": "numInf",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "the smallest number is {numInf}",
+                "low {numInf}",
+                "I want to sort {cantNum} ",
+                "I want to sort {cantNum} numbers",
+                "the minimun limit will be {numInf} and I will enter {cantNum} numbers",
+                "the smallest  number will be {numInf}",
+                "the smallest  is {numInf}",
+                "{numInf}",
+                "the {numInf}"
+              ]
+            },
+            {
+              "name": "cantNum",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "I want to sort {cantNum}",
+                "I want to sort {cantNum} numbers",
+                "I will draw {cantNum} numbers",
+                "{cantNum} numbers",
+                "{cantNum}"
+              ]
+            }
+          ],
+          "samples": [
+            "I want {cantNum}",
+            "I want to sort {cantNum} numbers from {numInf} to {numSup}",
+            "{numSup}",
+            "I want to sort {numSup} numbers",
+            "the smallest number is {numInf}",
+            "the largest number is {numSup}",
+            "the {numSup}",
+            "I want a raffle"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.RepeatIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": []
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "SorteoNumeroIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "numSup",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1542613883254.1190950711388"
+              },
+              "validations": [
+                {
+                  "type": "isGreaterThan",
+                  "prompt": "Slot.Validation.881018471353.1359437390045.1384204024465",
+                  "value": "-1"
+                }
+              ]
+            },
+            {
+              "name": "numInf",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1542613883254.1439561377483"
+              },
+              "validations": [
+                {
+                  "type": "isGreaterThan",
+                  "prompt": "Slot.Validation.881018471353.139743052621.230343618247",
+                  "value": "-1"
+                }
+              ]
+            },
+            {
+              "name": "cantNum",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1542613883254.1491571766026"
+              },
+              "validations": [
+                {
+                  "type": "isGreaterThan",
+                  "prompt": "Slot.Validation.1542613883254.1491571766026.700386196241",
+                  "value": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "SKILL_RESPONSE"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.478433765263.219417639218",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "{numSuperior} , vale ahora di, número inferior uno, por ejemplo."
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Intent.478433765263",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Tenemos un sorteo de {cantNum} números comprendidos entre {numInferior} y {numSuperior} . Es eso cierto?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.478433765263.437250992328",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "{cantNum} números entre el {numInferior} y el ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.715899519239.1059310053691",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "del {numInferior} al {numSuperior} , ahora di, cantidad de números seis, por ejemplo."
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1542613883254.1190950711388",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Tell me which will be the largest number?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Ok, now tell me which will be the largest number?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Well now tell me what is the maximum limit?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1542613883254.1439561377483",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "And now what is the smallest number?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Now tell me the smallest number"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1542613883254.1491571766026",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "We\u0027re almost there, how many numbers do you want to get around?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Well, finally tell me how many numbers for the draw?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.1542613883254.1491571766026.700386196241",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "You must enter at least one number, how many numbers do you want to get around?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.881018471353.139743052621.230343618247",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "you must say a positive number, what number do you choose?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.881018471353.1359437390045.1384204024465",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "you must say a positive number, what number do you choose?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "5"
+}

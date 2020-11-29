@@ -1,0 +1,63 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "This skill chooses one or more random numbers from the range that is told",
+          "examplePhrases": [
+            "Alexa, open gonna get lucky",
+            ""
+          ],
+          "keywords": [
+            "draw",
+            "number",
+            "luk"
+          ],
+          "name": "I\u0027m gonna get lucky",
+          "description": "This skill chooses one or more random numbers from the range that is told. The skill will ask for the highest number, then the lowest number and finally ask for the number of numbers to be drawn. You can ask me to repeat it or ask for help if necessary",
+          "smallIconUri": "file://assets/images/en-US_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-US_largeIconUri.png"
+        },
+        "es-ES": {
+          "summary": "Esta skill elige uno o más números al azar entre el rango que se le diga",
+          "examplePhrases": [
+            "Alexa abre voy a tener suerte"
+          ],
+          "keywords": [
+            "número",
+            "sorteo",
+            "aleatorio"
+          ],
+          "name": "Voy a tener suerte",
+          "description": "Esta skill elige uno o más números al azar. Primero pedirá el número más alto, luego el más bajo y finalmente pedirá la cantidad de números a sortear. Puedes pedir que te repita o pedir ayuda si fuera necesario.",
+          "smallIconUri": "file://assets/images/es-ES_smallIconUri.png",
+          "largeIconUri": "file://assets/images/es-ES_largeIconUri.png"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Di Alexa abre voy a tener suerte. Esta skill elige uno o más números al azar entre el rango que se le diga. La skill pedirá el número mayor, luego el número menor y finalmente pedirá la cantidad de números a sortear. Puedes pedir que te repita o pedir ayuda si fuera necesario.",
+      "category": "KNOWLEDGE_AND_TRIVIA",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:078160485746:function:58654f9d-7707-49c4-b651-56c5cc387347:Release_1"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "locales": {
+        "en-US": {},
+        "es-ES": {}
+      },
+      "containsAds": false,
+      "isExportCompliant": true,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}

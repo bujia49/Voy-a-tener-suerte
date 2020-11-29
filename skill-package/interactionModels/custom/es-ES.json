@@ -1,0 +1,281 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "voy a tener suerte",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "SorteoNumeroIntent",
+          "slots": [
+            {
+              "name": "numSup",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "el mayor es {numSup}",
+                "el número mayor será {numSup}",
+                "el tope máximo será {numSup} y sortearé {cantNum} números",
+                "quiero sortear {cantNum} números",
+                "quiero sortear {cantNum}",
+                "sortearé {cantNum} números",
+                "tope superior el {numSup}",
+                "{numSup}",
+                "el {numSup}"
+              ]
+            },
+            {
+              "name": "numInf",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "el menor es {numInf}",
+                "el tope inferior es {numInf}",
+                "{numInf}",
+                "el número menor es {numInf}"
+              ]
+            },
+            {
+              "name": "cantNum",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "sortearé {cantNum} números",
+                "quiero sortear {cantNum}",
+                "quiero sortear {cantNum} números",
+                "{cantNum} números",
+                "{cantNum}"
+              ]
+            }
+          ],
+          "samples": [
+            "el {numSup}",
+            "necesito {cantNum}",
+            "necesito {cantNum} números",
+            "quiero sortear {cantNum} números del {numInf} al {numSup}",
+            "el mayor {numSup}",
+            " mayor {numSup}",
+            "menor {numInf}",
+            "el menor {numInf}",
+            "quiero {cantNum} números",
+            "quiero sortear {cantNum} números",
+            "quiero sortear {cantNum}",
+            "quiero {cantNum}",
+            "{numSup}",
+            "el número menor será {numInf}",
+            "quiero un sorteo",
+            "el tope máximo será {numSup}",
+            "el número mayor {numSup}"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": [
+            "no"
+          ]
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": [
+            "si"
+          ]
+        },
+        {
+          "name": "AMAZON.RepeatIntent",
+          "samples": [
+            "que dijiste",
+            "que has dicho",
+            "repita",
+            "repite",
+            "puedes repetir"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "SorteoNumeroIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "numSup",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1542613883254.1190950711388"
+              },
+              "validations": [
+                {
+                  "type": "isGreaterThan",
+                  "prompt": "Slot.Validation.881018471353.1359437390045.1384204024465",
+                  "value": "-1"
+                }
+              ]
+            },
+            {
+              "name": "numInf",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1542613883254.1439561377483"
+              },
+              "validations": [
+                {
+                  "type": "isGreaterThan",
+                  "prompt": "Slot.Validation.881018471353.139743052621.230343618247",
+                  "value": "-1"
+                }
+              ]
+            },
+            {
+              "name": "cantNum",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1542613883254.1491571766026"
+              },
+              "validations": [
+                {
+                  "type": "isGreaterThan",
+                  "prompt": "Slot.Validation.1542613883254.1491571766026.700386196241",
+                  "value": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "SKILL_RESPONSE"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.478433765263.219417639218",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "{numSuperior} , vale ahora di, número inferior uno, por ejemplo."
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Intent.478433765263",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Tenemos un sorteo de {cantNum} números comprendidos entre {numInferior} y {numSuperior} . Es eso cierto?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.478433765263.437250992328",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "{cantNum} números entre el {numInferior} y el ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.715899519239.1059310053691",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "del {numInferior} al {numSuperior} , ahora di, cantidad de números seis, por ejemplo."
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1542613883254.1190950711388",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Bueno ahora dime cual es el tope máximo?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Vale, ahora dime cual será el número mayor?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Dime cual será el número mayor?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1542613883254.1439561377483",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Ahora dime el número menor"
+          },
+          {
+            "type": "PlainText",
+            "value": "Y ahora cual es el número menor?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1542613883254.1491571766026",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Bueno, para terminar dime cuantos números para el sorteo?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Ya casi estamos, cuantos números quieres sortear?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.1542613883254.1491571766026.700386196241",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Debes sortear por lo menos un número"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.881018471353.139743052621.230343618247",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "debes decir un número positivo, Que número eliges?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.881018471353.1359437390045.1384204024465",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Debes decir un número positivo, que número eliges?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "23"
+}
